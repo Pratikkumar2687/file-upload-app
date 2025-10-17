@@ -12,15 +12,15 @@
                 <div class="flex flex-col sm:flex-row sm:items-center gap-4">
                     <label for="file" class="flex-1">
                         <input type="file" name="file" id="file" class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4
-                                               file:rounded-md file:border-0
-                                               file:text-sm file:font-semibold
-                                               file:bg-blue-50 file:text-blue-700
-                                               hover:file:bg-blue-100
-                                               focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                                   file:rounded-md file:border-0
+                                                   file:text-sm file:font-semibold
+                                                   file:bg-blue-50 file:text-blue-700
+                                                   hover:file:bg-blue-100
+                                                   focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </label>
 
                     <button type="submit" class="w-full sm:w-auto px-6 py-2 bg-blue-600 text-white font-medium rounded-md
-                                           hover:bg-blue-700 transition duration-200">
+                                               hover:bg-blue-700 transition duration-200">
                         Upload
                     </button>
                 </div>
@@ -56,8 +56,8 @@
                             </td>
                             <td class="px-4 py-2 border border-gray-300">{{ $file->created_at->format('d M Y, h:i A') }}</td>
                             <td class="px-4 py-2 border border-gray-300">
-                                <a href="{{ route('file.download', $file->filename) }}" class="text-blue-600 hover:underline"
-                                    target="_blank">
+                                <a href="{{ route('file.download', $file->id) }}" target="_blank"
+                                    class="text-blue-600 hover:underline">
                                     Download
                                 </a>
                             </td>

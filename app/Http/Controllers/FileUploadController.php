@@ -49,14 +49,17 @@ class FileUploadController extends Controller
         return redirect()->back()->with('success', 'File uploaded successfully!');
     }
 
-    public function download($filename)
+    public function download($id)
     {
-        $file = storage_path('app/uploads/' . $filename);
+        $file = FileUpload::findOrFail($id);
 
-        if (!file_exists($file)) {
+        $filePath = storage_path('app/' . $file->path); // use the stored path
+        $fileName = $file->filename; // original name for download
+
+        if (!file_exists($filePath)) {
             abort(404);
         }
 
-        return response()->download($file);
+        return response()->download($filePath, $fileName);
     }
 }
