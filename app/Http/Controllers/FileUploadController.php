@@ -48,4 +48,15 @@ class FileUploadController extends Controller
         // Redirect back with success message
         return redirect()->back()->with('success', 'File uploaded successfully!');
     }
+
+    public function download($filename)
+    {
+        $file = storage_path('app/uploads/' . $filename);
+
+        if (!file_exists($file)) {
+            abort(404);
+        }
+
+        return response()->download($file);
+    }
 }
